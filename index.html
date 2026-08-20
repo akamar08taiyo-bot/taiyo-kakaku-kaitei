@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>価格改定のご案内 | 太陽シルバーサービス株式会社</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;500;600;700&family=M+PLUS+1p:wght@400;500;700&family=M+PLUS+Rounded+1c:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Old+Mincho:wght@400;600;700&family=Zen+Maru+Gothic:wght@400;500;700&family=Shippori+Mincho:wght@400;600;700&family=Sawarabi+Gothic&family=Sawarabi+Mincho&family=Kosugi+Maru&family=BIZ+UDPGothic:wght@400;700&family=BIZ+UDPMincho&family=Klee+One:wght@400;600&family=IBM+Plex+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; background: #f4f6fa; color: #1c2a3f; }
+  a { color: #17365c; text-decoration: none; }
+  a:hover { color: #0f2440; text-decoration: underline; }
+  select:focus, input:focus, textarea:focus { outline: 2px solid #7fa4d8; outline-offset: 1px; }
+  input::placeholder, textarea::placeholder { color: #9aa8bd; }
+
+  /* ---------- control bar ---------- */
+  #bar { display: flex; justify-content: center; padding: 16px 22px 18px; background: #e7edf6; border-bottom: 1px solid #ccd8e8; font-size: 13px; }
+  #bar > .inner { width: 100%; max-width: 794px; display: flex; flex-direction: column; gap: 13px; }
+  .row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .row.sep { padding-top: 12px; border-top: 1px solid #cfdaea; }
+  .caps { flex: none; font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em; color: #5a6b85; }
+  .hint { font-size: 12px; color: #5a6b85; }
+  .spacer { margin-left: auto; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  select, .fld input, .fld textarea { border: 1px solid #b9c8dd; border-radius: 3px; background: #fff; color: #16233a; font-family: inherit; }
+  select { appearance: none; padding: 9px 14px; font-size: 13px; }
+  select#office { font-size: 15px; font-weight: 700; min-width: 190px; padding: 9px 16px; }
+  select#font { min-width: 180px; }
+  button { font-family: inherit; cursor: pointer; border-radius: 3px; }
+  .btn-primary { padding: 9px 18px; border: 1px solid #1f4e79; background: #1f4e79; color: #fff; font-size: 12.5px; font-weight: 700; }
+  .btn-primary:hover { background: #163a5c; }
+  .btn-print { padding: 9px 18px; border: 1px solid #7b98bd; background: #cddef2; color: #17365c; font-size: 12.5px; font-weight: 700; }
+  .btn-print:hover { background: #bcd2ec; }
+  .btn-ghost { padding: 7px 13px; border: 1px solid #b9c8dd; background: #fff; color: #24354f; font-size: 12px; }
+  .btn-ghost:hover { background: #f2f6fb; }
+  .btn-link { padding: 7px 11px; border: 1px solid transparent; background: transparent; color: #6b7c96; font-size: 12px; }
+  .btn-link:hover { color: #1c2a3f; border-color: #cfdaea; }
+  .btn-mini { padding: 5px 12px; border: 1px solid #b9c8dd; background: #fff; color: #24354f; font-size: 11.5px; }
+  .btn-mini:hover { background: #f2f6fb; }
+  .btn-del { padding: 0 10px; border: 1px solid #dcc4c0; background: #fff; color: #a3271b; font-size: 11.5px; }
+  .btn-del:hover { background: #fdf2f0; }
+  .btn-kichi { padding: 0 11px; border: 1px solid #b9c8dd; background: #fff; color: #5a6b85; font-size: 11.5px; font-weight: 700; }
+  .btn-kichi.on { border-color: #1f4e79; background: #1f4e79; color: #fff; }
+  .grid3.fields { align-items: start; gap: 12px 16px; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px 14px; }
+  .grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 16px; }
+  .fld { display: flex; flex-direction: column; gap: 5px; }
+  .fld > span { font-size: 10.5px; font-weight: 500; letter-spacing: 0.08em; color: #5a6b85; }
+  .fld input { padding: 8px 11px; font-size: 13.5px; }
+  .fld input[type="date"] { padding: 7px 9px; font-size: 13px; }
+  .fld textarea { padding: 8px 11px; font-size: 13px; line-height: 1.6; resize: vertical; }
+  .panel { padding-top: 13px; border-top: 1px solid #cfdaea; display: flex; flex-direction: column; gap: 11px; }
+  .panel .note { font-size: 11.5px; color: #6b7c96; }
+  .span2 { grid-column: span 2; }
+  .span3 { grid-column: span 3; }
+  [hidden] { display: none !important; }
+
+  /* ---------- A4 sheet ---------- */
+  #sheetWrap { display: flex; justify-content: center; padding: 26px 20px 60px; }
+  #sheet {
+    width: 210mm; min-height: 297mm; padding: 28px 56px 26px; background: #fff; color: #1a2436;
+    font-size: 12.5px; line-height: 1.62; letter-spacing: 0.015em; display: flex; flex-direction: column;
+    box-shadow: 0 2px 18px rgba(20, 32, 58, 0.14);
+  }
+  #sheet p { margin: 0; text-align: justify; text-wrap: pretty; }
+  #sheet h1 { margin: 0; font-weight: 700; font-size: 21.5px; line-height: 1.42; letter-spacing: 0.05em; color: #14203a; text-align: center; }
+  #sheet h2 { margin: 0; font-size: 14.5px; font-weight: 700; color: #14203a; letter-spacing: 0.03em; }
+  #sheet strong { font-weight: 700; }
+  #sheet strong.u { border-bottom: 1px solid #b02418; padding-bottom: 1px; }
+  .head { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; }
+  .head .right { text-align: right; line-height: 1.65; }
+  .issue { font-size: 11.5px; color: #48566b; letter-spacing: 0.08em; }
+  .company { margin-top: 11px; font-size: 15px; font-weight: 700; letter-spacing: 0.03em; color: #14203a; }
+  .office { margin-top: 3px; font-size: 13.5px; font-weight: 500; }
+  .chief { margin-top: 1px; font-size: 12.5px; color: #33404f; }
+  .titleblock { margin-top: 16px; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .rule { width: 100%; height: 1px; background: #dde3ec; }
+  .accent { width: 46px; height: 2px; background: #b02418; }
+  .lead { margin-top: 13px !important; }
+  .cards { margin-top: 13px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .card { border: 1px solid #d5dce6; border-top: 3px solid #14203a; padding: 9px 14px 10px; text-align: center; }
+  .card .lbl { font-size: 10.5px; font-weight: 700; letter-spacing: 0.16em; color: #55637a; }
+  .card .big { margin-top: 5px; font-size: 16.5px; font-weight: 700; line-height: 1.3; color: #14203a; }
+  .card .sub { margin-top: 2px; font-size: 11.5px; color: #33404f; }
+  .card.gold { border: 1px solid #e3d3ab; border-top: 3px solid #cfae5e; background: #fdfaf1; }
+  .card.gold .lbl { color: #75530c; }
+  .card.gold .big { color: #654a08; }
+  .card.gold .sub { color: #75530c; }
+  .card.red { border: 1px solid #e8cfcb; border-top: 3px solid #b02418; background: #fdf7f6; }
+  .card.red .lbl { color: #91473d; }
+  .card.red .big { color: #a3271b; }
+  .card.red .sub { color: #7a4b44; }
+  .applynote { margin-top: 8px !important; font-size: 12px; line-height: 1.65; color: #a3271b; font-weight: 500; }
+  .caution { margin-top: 12px; display: flex; align-items: center; gap: 12px; background: #fdf8ec; border-left: 3px solid #cfae5e; padding: 7px 15px; }
+  .caution .tag { flex: none; font-size: 10.5px; font-weight: 700; letter-spacing: 0.12em; color: #75530c; }
+  .caution .txt { font-size: 13px; font-weight: 700; color: #654a08; letter-spacing: 0.02em; }
+  .sec { margin-top: 12px; }
+  .sec + .sec { margin-top: 11px; }
+  .sechead { display: flex; align-items: center; gap: 11px; padding-bottom: 6px; border-bottom: 1.5px solid #14203a; }
+  .num { flex: none; width: 21px; height: 21px; display: flex; align-items: center; justify-content: center; background: #14203a; color: #fff; font-size: 11.5px; font-weight: 700; }
+  .sec p { margin-top: 9px !important; }
+  .sec p + p { margin-top: 6px !important; }
+  .tiles { margin-top: 9px; display: grid; gap: 8px; }
+  .tile { border: 1px solid #d5dce6; background: #f7f9fc; padding: 6px 10px; text-align: center; font-size: 12.5px; font-weight: 500; letter-spacing: 0.02em; }
+  .notes { margin: 8px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 2px; font-size: 10px; line-height: 1.55; color: #55637a; }
+  .closing { margin-top: 9px !important; }
+  .contact { margin-top: 20px; }
+  .contact .box { border: 1px solid #d5dce6; border-top: 2px solid #14203a; padding: 9px 17px 10px; display: flex; flex-direction: column; }
+  .contact .lbl { font-size: 10px; font-weight: 700; letter-spacing: 0.16em; color: #55637a; }
+  .contact .name { margin-top: 6px; font-size: 14px; font-weight: 700; color: #14203a; letter-spacing: 0.02em; }
+  .contact .addr { margin-top: 3px; font-size: 12px; color: #33404f; }
+  .contact .person { margin-top: 5px; font-size: 12.5px; color: #1a2436; }
+  .contact .nums { margin-top: 4px; display: flex; align-items: baseline; gap: 20px; font-size: 12.5px; color: #1a2436; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .contact .nums > span { display: flex; align-items: baseline; gap: 7px; }
+  .contact .nums .k { color: #55637a; font-size: 11px; letter-spacing: 0.1em; }
+
+  @page { size: A4; margin: 0; }
+  @media print {
+    body { background: #fff; }
+    #bar { display: none !important; }
+    #sheetWrap { padding: 0; }
+    #sheet { box-shadow: none; width: 210mm; height: 297mm; }
+  }
+</style>
+</head>
+<body>
+
+<div id="bar">
+ <div class="inner">
+  <div class="row">
+    <span class="caps">営業所</span>
+    <select id="office"></select>
+    <span class="caps">書体</span>
+    <select id="font"></select>
+    <div class="spacer">
+      <button class="btn-primary" id="btnPdf">PDFをダウンロード</button>
+      <button class="btn-print" id="btnPrint">印刷</button>
+    </div>
+  </div>
+
+  <div class="row sep">
+    <span class="hint">営業所を選ぶと所長名・住所・TEL・FAXが一括で切り替わります</span>
+    <div class="spacer">
+      <button class="btn-ghost" id="tglBody">案内文を編集</button>
+      <button class="btn-ghost" id="tglProducts">対象商品を編集</button>
+      <button class="btn-ghost" id="tglDetail">所長名・住所などを編集</button>
+      <button class="btn-link" id="btnReset">この営業所の編集をリセット</button>
+    </div>
+  </div>
+
+  <div class="grid3 fields">
+    <label class="fld"><span>担当者名（手入力）</span><input id="contact" placeholder="例：山田 太郎" /></label>
+    <label class="fld"><span>担当者携帯電話番号（手入力）</span><input id="mobile" placeholder="例：090-1234-5678" /></label>
+    <label class="fld"><span>文書の日付</span>
+      <div style="display:flex; gap:6px;">
+        <input type="date" id="issueISO" style="flex:1; min-width:0;" />
+        <button class="btn-kichi" id="btnKichi" title="吉日表記に切り替え">吉日</button>
+      </div>
+    </label>
+    <label class="fld"><span>改定実施日</span><input type="date" id="effectiveISO" /></label>
+    <label class="fld"><span>ご発注期日（目安）</span><input type="date" id="deadlineISO" /></label>
+  </div>
+
+  <div class="panel" id="panelBody" hidden>
+    <div class="row">
+      <span class="caps">案内文の編集</span>
+      <span class="note">**太字** ／ __赤下線付き太字__ ／ 改行もそのまま反映されます</span>
+      <button class="btn-mini" id="btnResetBody" style="margin-left:auto;">案内文を初期値に戻す</button>
+    </div>
+    <div class="grid2" id="bodyFields"></div>
+  </div>
+
+  <div class="panel" id="panelProducts" hidden>
+    <div class="row">
+      <span class="caps">対象商品（1〜6件）</span>
+      <button class="btn-mini" id="btnAddProduct">＋ 商品を追加</button>
+      <span class="note">入力した商品名が本文の「主な対象商品」に反映されます</span>
+    </div>
+    <div class="grid3" id="productFields"></div>
+  </div>
+
+  <div class="panel" id="panelDetail" hidden>
+    <div class="grid3" id="detailFields"></div>
+  </div>
+ </div>
+</div>
+
+<div id="sheetWrap">
+  <section id="sheet">
+    <div class="head">
+      <div style="font-size:14px; font-weight:500; padding-top:3px; letter-spacing:0.08em;" data-t="recipient"></div>
+      <div class="right">
+        <div class="issue" id="outIssue"></div>
+        <div class="company">太陽シルバーサービス株式会社</div>
+        <div class="office" id="outOffice"></div>
+        <div class="chief">所長　<span id="outChief"></span></div>
+      </div>
+    </div>
+
+    <div class="titleblock">
+      <div class="rule"></div>
+      <h1 data-t="title"></h1>
+      <div class="accent"></div>
+    </div>
+
+    <p class="lead" data-t="lead"></p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="lbl" data-t="effectiveLabel"></div>
+        <div class="big" id="outEffective"></div>
+        <div class="sub" data-t="effectiveNote"></div>
+      </div>
+      <div class="card gold">
+        <div class="lbl" data-t="deadlineLabel"></div>
+        <div class="big" id="outDeadline"></div>
+        <div class="sub" data-t="deadlineNote"></div>
+      </div>
+      <div class="card red">
+        <div class="lbl" data-t="basisLabel"></div>
+        <div class="big" data-t="basisTitle"></div>
+        <div class="sub" data-t="basisNote"></div>
+      </div>
+    </div>
+
+    <p class="applynote" data-t="applyNote"></p>
+
+    <div class="caution">
+      <span class="tag">ご注意</span>
+      <span class="txt" data-t="caution"></span>
+    </div>
+
+    <div class="sec">
+      <div class="sechead"><span class="num">1</span><h2 data-t="h1"></h2></div>
+      <p data-t="s1p1"></p>
+      <p data-t="s1p2"></p>
+    </div>
+
+    <div class="sec">
+      <div class="sechead"><span class="num">2</span><h2 data-t="h2"></h2></div>
+      <div class="tiles" id="outTiles"></div>
+      <ul class="notes" id="outNotes"></ul>
+    </div>
+
+    <p class="closing" data-t="closing"></p>
+
+    <div class="contact">
+      <div class="box">
+        <div class="lbl">お問い合わせ先</div>
+        <div class="name">太陽シルバーサービス株式会社　<span id="outOffice2"></span></div>
+        <div class="addr">〒<span id="outZip"></span>　<span id="outAddress"></span></div>
+        <div class="person" id="outPerson" hidden></div>
+        <div class="nums">
+          <span><span class="k">TEL</span><span id="outTel"></span></span>
+          <span><span class="k">FAX</span><span id="outFax"></span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+/* ============================================================
+   営業所マスター（19営業所）
+   ============================================================ */
+const OFFICES = [
+  { name: "小倉営業所",   chief: "森口 賢一", zip: "802-0011", address: "福岡県北九州市小倉北区重住3丁目11-21", tel: "093-952-1616", fax: "093-952-1627" },
+  { name: "小倉南営業所", chief: "串山 清彦", zip: "800-0226", address: "福岡県北九州市小倉南区田原新町1丁目3-34", tel: "093-474-5670", fax: "093-474-5671" },
+  { name: "八幡西営業所", chief: "福本 浩史", zip: "807-0815", address: "福岡県北九州市八幡西区本城東2丁目4-8", tel: "093-603-3512", fax: "093-601-3593" },
+  { name: "八幡東営業所", chief: "兼重 陽介", zip: "805-0033", address: "福岡県北九州市八幡東区山路松尾町14-6", tel: "093-654-8515", fax: "093-654-8516" },
+  { name: "行橋営業所",   chief: "久保 匠史", zip: "824-0043", address: "福岡県行橋市大字流末1327番地", tel: "0930-26-9640", fax: "0930-26-9641" },
+  { name: "田川営業所",   chief: "早崎 勝",   zip: "826-0042", address: "福岡県田川市大字川宮1200番地", tel: "0947-44-1895", fax: "0947-44-2372" },
+  { name: "飯塚営業所",   chief: "佐藤 正仁", zip: "820-0081", address: "福岡県飯塚市枝国510番地7", tel: "0948-52-6360", fax: "0948-52-6362" },
+  { name: "福岡南営業所", chief: "瀧本 順一", zip: "816-0912", address: "福岡県大野城市御笠川2丁目10-15", tel: "092-504-9810", fax: "092-504-9811" },
+  { name: "福岡西営業所", chief: "佐藤 正和", zip: "814-0032", address: "福岡県福岡市早良区小田部4丁目11-31", tel: "092-833-0131", fax: "092-833-0132" },
+  { name: "福岡東営業所", chief: "岡本 将臣", zip: "812-0064", address: "福岡県福岡市東区松田3丁目25-2", tel: "092-627-1150", fax: "092-627-1151" },
+  { name: "久留米営業所", chief: "牟田 知広", zip: "838-0141", address: "福岡県小郡市小郡97番地19　オフィスパレア小郡Ⅰ（2号室＋3号室）", tel: "0942-72-8822", fax: "0942-72-8833" },
+  { name: "大牟田営業所", chief: "橋本 浩志", zip: "837-0924", address: "福岡県大牟田市大字歴木446-1", tel: "0944-59-1488", fax: "0944-59-1481" },
+  { name: "佐賀営業所",   chief: "江原 諒",   zip: "849-0937", address: "佐賀県佐賀市鍋島5丁目4-15", tel: "0952-34-1224", fax: "0952-34-1225" },
+  { name: "長崎営業所",   chief: "吉本 幸治", zip: "851-0122", address: "長崎県長崎市界2丁目2番4号", tel: "095-834-0535", fax: "095-834-0536" },
+  { name: "大村営業所",   chief: "中富 一貴", zip: "856-0844", address: "長崎県大村市溝陸町643-1", tel: "0957-49-6222", fax: "0957-49-6333" },
+  { name: "壱岐営業所",   chief: "長岡 計治", zip: "811-5117", address: "長崎県壱岐市郷ノ浦町田中触1078", tel: "0920-47-9005", fax: "0920-47-9006" },
+  { name: "熊本営業所",   chief: "城戸 健",   zip: "862-0945", address: "熊本県熊本市東区画図町大字下無田1432-22", tel: "096-377-7630", fax: "096-377-7631" },
+  { name: "熊本北営業所", chief: "髙木 伸基", zip: "861-5517", address: "熊本県熊本市北区鶴羽田1丁目10番7号", tel: "096-341-5765", fax: "096-341-5766" },
+  { name: "大分営業所",   chief: "山下 厚",   zip: "870-0953", address: "大分県大分市下郡東1-4-35", tel: "097-504-8001", fax: "097-504-8002" }
+];
+
+const FONTS = [
+  { key: "noto-sans",       label: "Noto Sans JP（ゴシック）", stack: "'Noto Sans JP', sans-serif" },
+  { key: "noto-serif",      label: "Noto Serif JP（明朝）",   stack: "'Noto Serif JP', serif" },
+  { key: "biz-gothic",      label: "BIZ UDPゴシック",          stack: "'BIZ UDPGothic', sans-serif" },
+  { key: "biz-mincho",      label: "BIZ UDP明朝",              stack: "'BIZ UDPMincho', serif" },
+  { key: "zen-kaku",        label: "Zen角ゴシック New",        stack: "'Zen Kaku Gothic New', sans-serif" },
+  { key: "zen-old-mincho",  label: "Zenオールド明朝",          stack: "'Zen Old Mincho', serif" },
+  { key: "zen-maru",        label: "Zen丸ゴシック",            stack: "'Zen Maru Gothic', sans-serif" },
+  { key: "shippori",        label: "しっぽり明朝",             stack: "'Shippori Mincho', serif" },
+  { key: "mplus1p",         label: "M PLUS 1p",                stack: "'M PLUS 1p', sans-serif" },
+  { key: "mplus-round",     label: "M PLUS 丸ゴシック",        stack: "'M PLUS Rounded 1c', sans-serif" },
+  { key: "sawarabi-gothic", label: "さわらびゴシック",         stack: "'Sawarabi Gothic', sans-serif" },
+  { key: "sawarabi-mincho", label: "さわらび明朝",             stack: "'Sawarabi Mincho', serif" },
+  { key: "kosugi-maru",     label: "小杉丸ゴシック",           stack: "'Kosugi Maru', sans-serif" },
+  { key: "klee",            label: "Klee One（手書き風）",     stack: "'Klee One', serif" },
+  { key: "plex",            label: "IBM Plex Sans JP",         stack: "'IBM Plex Sans JP', sans-serif" },
+  { key: "yugothic",        label: "游ゴシック（PC標準）",     stack: "'Yu Gothic', YuGothic, 'Hiragino Kaku Gothic ProN', sans-serif" }
+];
+
+const DETAIL = [
+  { key: "chief",   label: "所長名",     span: 1 },
+  { key: "zip",     label: "郵便番号",   span: 1 },
+  { key: "tel",     label: "TEL",        span: 1 },
+  { key: "fax",     label: "FAX",        span: 1 },
+  { key: "address", label: "住所",       span: 3 }
+];
+
+const DEFAULT_PRODUCTS = ["トイレットペーパー", "ペーパータオル", "ティッシュペーパー"];
+
+const BODY_FIELDS = [
+  { key: "recipient",      label: "宛名", rows: 1, span: 1, def: "お取引先各位" },
+  { key: "title",          label: "タイトル（改行で2行）", rows: 2, span: 1, def: "紙製品価格改定に伴う\nお早めのご発注のお願い" },
+  { key: "lead",           label: "冒頭のあいさつ・本文", rows: 4, span: 2, def: "平素より格別のご愛顧を賜り、誠にありがとうございます。このたび、原材料・原燃料価格、物流費、エネルギーコスト、人件費等の上昇を背景としたメーカー・仕入先の価格改定に伴い、下記のとおり一部の紙製品について価格を改定いたします。" },
+  { key: "effectiveLabel", label: "左カード見出し", rows: 1, span: 1, def: "改定実施" },
+  { key: "effectiveNote",  label: "左カード補足", rows: 1, span: 1, def: "納品分より適用" },
+  { key: "deadlineLabel",  label: "中央カード見出し", rows: 1, span: 1, def: "ご発注期日（目安）" },
+  { key: "deadlineNote",   label: "中央カード補足", rows: 1, span: 1, def: "納品を確約するものではありません" },
+  { key: "basisLabel",     label: "右カード見出し", rows: 1, span: 1, def: "適用基準" },
+  { key: "basisTitle",     label: "右カード本文", rows: 1, span: 1, def: "「納品日」を基準" },
+  { key: "basisNote",      label: "右カード補足", rows: 1, span: 1, def: "発注日ではありません" },
+  { key: "caution",        label: "「ご注意」の一文", rows: 1, span: 1, def: "現在、すでに一部商品で納期遅延が発生しております" },
+  { key: "applyNote",      label: "赤字の注記", rows: 3, span: 2, def: "9月30日までにご発注いただいた場合でも、納品が10月1日以降となった商品につきましては、改定後価格が適用されます。対象商品および改定後価格は、別途お渡しするお見積書をご確認ください。" },
+  { key: "h1",             label: "見出し 1", rows: 1, span: 1, def: "9月はさらなるご注文・物流の混雑が予想されます" },
+  { key: "h2",             label: "見出し 2", rows: 1, span: 1, def: "主な対象商品" },
+  { key: "s1p1",           label: "見出し1の本文（前半）", rows: 3, span: 1, def: "価格改定前のご注文の集中に加え、シルバーウィーク前の発注量増加、連休に伴うメーカー・仕入先の稼働日および物流スケジュールへの影響により、通常よりも納品までにお時間をいただく可能性がございます。" },
+  { key: "s1p2",           label: "見出し1の本文（後半）", rows: 3, span: 1, def: "メーカー・仕入先の在庫状況や出荷状況によっては、**ご希望の納期に間に合わない場合がございます。**現在の在庫状況や今後のご使用予定をご確認いただき、__できるだけ余裕をもって、お早めにご発注ください__ますようお願いいたします。" },
+  { key: "notes",          label: "※ 注記（1行ごとに1項目）", rows: 4, span: 2, def: "現在ご採用いただいている商品によって、価格改定の対象となる商品は異なります。\n対象商品・改定後価格の詳細は、別途お渡しするお見積書をご確認ください。\n早期にご発注いただいた場合でも、メーカー・仕入先の在庫状況、出荷状況、物流状況等により、9月30日までの納品を確約するものではございません。" },
+  { key: "closing",        label: "結びの文", rows: 3, span: 2, def: "お客様にはご負担とご不便をおかけいたしますが、何卒事情をご理解賜りますとともに、**お早めのご確認・ご発注にご協力**くださいますようお願い申し上げます。" }
+];
+const BODY_DEF = {};
+BODY_FIELDS.forEach(f => { BODY_DEF[f.key] = f.def; });
+
+const DEFAULTS = { issueISO: "2026-08-19", effectiveISO: "2026-10-01", deadlineISO: "2026-09-06", font: "noto-sans", kichi: false };
+
+/* ============================================================
+   永続化（localStorage）
+   店舗別: state.offices[営業所名] = { chief, zip, tel, fax, address, contact, mobile }
+   文書共通: state.doc = { 案内文, products, 日付, font, kichi }
+   ============================================================ */
+const KEY = "taiyo-price-letter-v1";
+let state = { i: 0, offices: {}, doc: {} };
+
+function load() {
+  try {
+    const raw = localStorage.getItem(KEY);
+    if (raw) {
+      const p = JSON.parse(raw);
+      state.offices = p.offices || {};
+      state.doc = p.doc || {};
+      if (typeof p.i === "number" && OFFICES[p.i]) state.i = p.i;
+    }
+  } catch (e) {}
+}
+function save() {
+  try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+}
+
+const office = () => OFFICES[state.i];
+const ov = () => state.offices[office().name] || {};
+const val = k => { const o = ov(); return o[k] !== undefined && o[k] !== null ? o[k] : (office()[k] || ""); };
+const doc = (k, def) => { const v = state.doc[k]; return v !== undefined && v !== null && v !== "" ? v : def; };
+const body = k => doc(k, BODY_DEF[k]);
+
+function setOffice(key, value) {
+  const n = office().name;
+  state.offices[n] = Object.assign({}, state.offices[n], { [key]: value });
+  save(); render();
+}
+function setDoc(key, value) { state.doc[key] = value; save(); render(); }
+
+/* ============================================================
+   ヘルパー
+   ============================================================ */
+// **太字** / __赤下線付き太字__ / 改行 を安全にHTML化
+function rich(text) {
+  const esc = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  return String(text == null ? "" : text).split("\n").map(line =>
+    line.split(/(\*\*[^*]+\*\*|__[^_]+__)/).map(seg => {
+      if (!seg) return "";
+      if (seg.startsWith("**") && seg.endsWith("**")) return "<strong>" + esc(seg.slice(2, -2)) + "</strong>";
+      if (seg.startsWith("__") && seg.endsWith("__")) return '<strong class="u">' + esc(seg.slice(2, -2)) + "</strong>";
+      return esc(seg);
+    }).join("")
+  ).join("<br />");
+}
+
+// ISO(YYYY-MM-DD) → 和文表記。kichiMode=true で「〇年〇月吉日」
+function jpDate(iso, kichiMode) {
+  const p = String(iso).split("-");
+  if (p.length !== 3) return iso;
+  const y = Number(p[0]), m = Number(p[1]), d = Number(p[2]);
+  return kichiMode ? y + "年" + m + "月吉日" : y + "年" + m + "月" + d + "日";
+}
+
+const products = () => {
+  const p = state.doc.products;
+  return (Array.isArray(p) && p.length ? p : DEFAULT_PRODUCTS).slice(0, 6);
+};
+function setProducts(list) { setDoc("products", list.slice(0, 6)); }
+
+const $ = id => document.getElementById(id);
+
+/* ============================================================
+   コントロールバー描画
+   ============================================================ */
+function buildStaticControls() {
+  $("office").innerHTML = OFFICES.map((o, i) => '<option value="' + i + '">' + o.name + "</option>").join("");
+  $("font").innerHTML = FONTS.map(f => '<option value="' + f.key + '">' + f.label + "</option>").join("");
+
+  $("bodyFields").innerHTML = BODY_FIELDS.map(f =>
+    '<label class="fld' + (f.span === 2 ? " span2" : "") + '"><span>' + f.label +
+    '</span><textarea data-body="' + f.key + '" rows="' + f.rows + '"></textarea></label>'
+  ).join("");
+  $("detailFields").innerHTML = DETAIL.map(f =>
+    '<label class="fld' + (f.span === 3 ? " span3" : "") + '"><span>' + f.label +
+    '</span><input data-detail="' + f.key + '" /></label>'
+  ).join("");
+
+  $("office").addEventListener("change", e => { state.i = Number(e.target.value); save(); render(); });
+  $("font").addEventListener("change", e => setDoc("font", e.target.value));
+  $("contact").addEventListener("input", e => setOffice("contact", e.target.value));
+  $("mobile").addEventListener("input", e => setOffice("mobile", e.target.value));
+  $("issueISO").addEventListener("change", e => setDoc("issueISO", e.target.value));
+  $("effectiveISO").addEventListener("change", e => setDoc("effectiveISO", e.target.value));
+  $("deadlineISO").addEventListener("change", e => setDoc("deadlineISO", e.target.value));
+  $("btnKichi").addEventListener("click", () => setDoc("kichi", !doc("kichi", DEFAULTS.kichi)));
+
+  document.querySelectorAll("[data-body]").forEach(el =>
+    el.addEventListener("input", e => setDoc(el.dataset.body, e.target.value)));
+  document.querySelectorAll("[data-detail]").forEach(el =>
+    el.addEventListener("input", e => setOffice(el.dataset.detail, e.target.value)));
+
+  const toggle = (btn, panel, on, off) => $(btn).addEventListener("click", () => {
+    const p = $(panel);
+    p.hidden = !p.hidden;
+    $(btn).textContent = p.hidden ? off : on;
+  });
+  toggle("tglBody", "panelBody", "案内文を閉じる", "案内文を編集");
+  toggle("tglProducts", "panelProducts", "対象商品を閉じる", "対象商品を編集");
+  toggle("tglDetail", "panelDetail", "所長名・住所などを閉じる", "所長名・住所などを編集");
+
+  $("btnAddProduct").addEventListener("click", () => setProducts(products().concat(["新しい商品"])));
+  $("btnResetBody").addEventListener("click", () => {
+    BODY_FIELDS.forEach(f => { delete state.doc[f.key]; });
+    save(); render();
+  });
+  $("btnReset").addEventListener("click", () => { delete state.offices[office().name]; save(); render(); });
+  $("btnPrint").addEventListener("click", () => window.print());
+  $("btnPdf").addEventListener("click", exportPdf);
+}
+
+function renderProductFields() {
+  const list = products();
+  $("productFields").innerHTML = list.map((name, i) =>
+    '<label class="fld"><span>商品 ' + (i + 1) + '</span><div style="display:flex; gap:6px;">' +
+    '<input data-product="' + i + '" placeholder="商品名" style="flex:1; min-width:0;" />' +
+    (list.length > 1 ? '<button class="btn-del" data-remove="' + i + '">削除</button>' : "") +
+    "</div></label>"
+  ).join("");
+  list.forEach((name, i) => {
+    const input = document.querySelector('[data-product="' + i + '"]');
+    input.value = name;
+    input.addEventListener("input", e => {
+      const next = products().slice();
+      next[i] = e.target.value;
+      state.doc.products = next.slice(0, 6);
+      save(); renderSheet();
+    });
+  });
+  document.querySelectorAll("[data-remove]").forEach(b =>
+    b.addEventListener("click", () => setProducts(products().filter((x, k) => k !== Number(b.dataset.remove)))));
+  $("btnAddProduct").hidden = list.length >= 6;
+}
+
+/* ============================================================
+   A4 本文描画
+   ============================================================ */
+function renderSheet() {
+  const fontKey = doc("font", DEFAULTS.font);
+  const font = FONTS.find(f => f.key === fontKey) || FONTS[0];
+  $("sheet").style.fontFamily = font.stack;
+
+  document.querySelectorAll("#sheet [data-t]").forEach(el => { el.innerHTML = rich(body(el.dataset.t)); });
+
+  const kichi = !!doc("kichi", DEFAULTS.kichi);
+  $("outIssue").textContent = jpDate(doc("issueISO", DEFAULTS.issueISO), kichi);
+  $("outEffective").textContent = jpDate(doc("effectiveISO", DEFAULTS.effectiveISO), false);
+  $("outDeadline").textContent = jpDate(doc("deadlineISO", DEFAULTS.deadlineISO), false);
+
+  $("outOffice").textContent = office().name;
+  $("outOffice2").textContent = office().name;
+  $("outChief").textContent = val("chief");
+  $("outZip").textContent = val("zip");
+  $("outAddress").textContent = val("address");
+  $("outTel").textContent = val("tel");
+  $("outFax").textContent = val("fax");
+
+  const c = val("contact"), m = val("mobile");
+  const line = c && m ? c + "　（携帯：" + m + "）" : (c || (m ? "（携帯：" + m + "）" : ""));
+  $("outPerson").hidden = !line;
+  $("outPerson").innerHTML = line ? "担当　" + rich(line) : "";
+
+  const list = products();
+  const tiles = $("outTiles");
+  tiles.style.gridTemplateColumns = "repeat(" + Math.min(list.length, 3) + ", minmax(0, 1fr))";
+  tiles.innerHTML = list.map(n => '<div class="tile">' + rich(n) + "</div>").join("");
+
+  $("outNotes").innerHTML = String(body("notes")).split("\n").filter(t => t.trim())
+    .map(t => "<li>※ " + rich(t) + "</li>").join("");
+}
+
+function renderControls() {
+  $("office").value = String(state.i);
+  $("font").value = doc("font", DEFAULTS.font);
+  $("contact").value = val("contact");
+  $("mobile").value = val("mobile");
+  $("issueISO").value = doc("issueISO", DEFAULTS.issueISO);
+  $("effectiveISO").value = doc("effectiveISO", DEFAULTS.effectiveISO);
+  $("deadlineISO").value = doc("deadlineISO", DEFAULTS.deadlineISO);
+  $("btnKichi").classList.toggle("on", !!doc("kichi", DEFAULTS.kichi));
+  document.querySelectorAll("[data-body]").forEach(el => { el.value = body(el.dataset.body); });
+  document.querySelectorAll("[data-detail]").forEach(el => { el.value = val(el.dataset.detail); });
+  renderProductFields();
+}
+
+function render() { renderControls(); renderSheet(); }
+
+/* ============================================================
+   PDF 出力（html2pdf.js → A4 1ページ）
+   ============================================================ */
+let busy = false;
+function exportPdf() {
+  const node = $("sheet");
+  if (busy) return;
+  if (!window.html2pdf) { window.print(); return; }
+  busy = true;
+  $("btnPdf").textContent = "PDF作成中…";
+  window.html2pdf().set({
+    margin: 0,
+    filename: "価格改定のご案内_" + office().name + ".pdf",
+    image: { type: "jpeg", quality: 0.98 },
+    html2canvas: { scale: 3, useCORS: true, backgroundColor: "#ffffff" },
+    jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
+  }).from(node).save()
+    .then(done).catch(done);
+  function done() { busy = false; $("btnPdf").textContent = "PDFをダウンロード"; }
+}
+
+load();
+buildStaticControls();
+render();
+</script>
+</body>
+</html>
