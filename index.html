@@ -116,6 +116,14 @@
   .contact .nums > span { display: flex; align-items: baseline; gap: 7px; }
   .contact .nums .k { color: #55637a; font-size: 11px; letter-spacing: 0.1em; }
 
+  /* スマホ・タブレットでは用紙(A4=210mm)が画面に収まらず、flex で押し潰されて
+     印刷結果と違う行送りで表示されたうえ、画面全体も横にずれていた。
+     用紙はA4のまま保ち、用紙の枠の中だけで横スクロールさせる。 */
+  @media (max-width: 860px) {
+    #sheetWrap { justify-content: flex-start; overflow-x: auto; overscroll-behavior-x: contain; padding: 16px 12px 40px; }
+    #sheet { flex: none; }
+  }
+
   @page { size: A4; margin: 0; }
   @media print {
     body { background: #fff; }
